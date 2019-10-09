@@ -108,9 +108,22 @@
                        + origin
                 5) to deploy on heroku
                     - git push heroku master
+    13) Avoiding Global Modules
+        1) adding new scripts to package.json to make life easy
+                 "scripts": {
+                    "start": "node src/app.js",
+                --->"development": "nodemon src/app.js -e js,hbs,css"
+                }
+        2) then run command on terminal "npm run dev"
 
-
-
+         - when we have global modules installed, it is difficult for other people to know that 
+         - they need to install them. Since they are not local dependencies. 
+         - So if you have project it is better to install everything LOCALLLY.
+         - Since in our computer we installed nodemon globally. so the solution is
+         - to uninstall it and install it as a local dependencies.
+         - type in terminal "npm uninstall -g nodemon"
+         - to instal nodemon "npm install nodemon --save-dev" 
+         * --save-dev is a dependency that you need only in your local machine.
 
 
 
