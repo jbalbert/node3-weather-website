@@ -3,6 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
+const hotel = require('./utils/hotel.js')
     // calling express
 const app = express()
 const port = process.env.PORT || 3000
@@ -137,6 +138,56 @@ app.get('/help/*', (request, response) => {
     })
 })
 
+
+
+app.get('/hotel', (request, response) => {
+
+    response.render('hotel', {
+        title: 'Hotel Page',
+        name: 'Search For A Hotel, This is connected to a 3rd party hotel web service.'
+
+    })
+
+})
+
+
+app.get('/hotelSearch', (request, response) => {
+    if (!request.query.destination) {
+        return response.send({
+            error: 'destination parameter is required.'
+        })
+    } else if (!request.query.checkin) {
+        return response.send({
+            error: 'check-in parameter is required.'
+        })
+    } else if (!request.query.checkout) {
+        return response.send({
+            error: 'check-out parameter is required.'
+        })
+    } else if (!request.query.pax) {
+        return response.send({
+            error: 'pax parameter is required.'
+        })
+    }
+
+    let destination = request.query.destination
+    let checkin = request.query.checkin
+    let checkout = request.query.checkout
+    let pax = request.query.pax
+
+    hotel(destination, checkin, checkout, pax, (error, hotels = {}) => {
+
+        if (error) {
+            return response.send({ error })
+        }
+        response.send({
+            hotels: hotels
+
+        })
+
+    })
+})
+
 // 404 pages should come last
 // Important:
 // To match every route, express provides a wildcard character like below
@@ -148,6 +199,10 @@ app.get('*', (request, response) => {
 
     })
 })
+
+
+
+
 
 // this is how to serve up your server
 // port and a callback
