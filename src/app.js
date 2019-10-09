@@ -97,8 +97,9 @@ app.get('/weather', (request, response) => {
                 return response.send({ error })
             }
 
-            const weatherResponse = 'Weather Summary: ' + weatherData.totalSummary + ' , it is currently ' + weatherData.temperature +
-                ' degrees out. There is a ' + weatherData.probability + ' % chance of rain.'
+
+            const weatherResponse = 'Time Zone: ' + weatherData.timezone + ', Weather Summary: ' + weatherData.totalSummary + ', it is currently ' + weatherData.temperature +
+                ' degrees out with a wind speed of ' + weatherData.windSpeed + ' km/h and a wind gust of ' + weatherData.windGust + ' km/h. There is a ' + weatherData.probability + ' % chance of rain.'
 
 
             response.send({

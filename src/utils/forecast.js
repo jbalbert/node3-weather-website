@@ -20,12 +20,16 @@ const forecast = (latitude, longitude, callback) => {
             callback('Unable to find weather.')
         } else {
 
-            const { temperature, precipProbability, summary } = body.currently
+            const { temperature, precipProbability, summary, windSpeed, windGust } = body.currently
+            const { timezone } = body
 
             callback(undefined, {
                 'temperature': temperature,
                 'probability': precipProbability,
-                'totalSummary': summary
+                'totalSummary': summary,
+                'timezone': timezone,
+                'windSpeed': windSpeed,
+                'windGust': windGust
 
             })
         }
