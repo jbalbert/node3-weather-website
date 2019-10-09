@@ -22,7 +22,7 @@ weatherForm.addEventListener('submit', (event) => {
     // preventDefault() method tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be. 
     event.preventDefault()
     const location = searchElement.value
-    const url = 'http://localhost:3000/weather?address=' + location
+    const url = '/weather?address=' + location
 
     messageOne.textContent = 'Loading....'
     messageTwo.textContent = ''

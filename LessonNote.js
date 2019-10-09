@@ -61,12 +61,45 @@
                 + to test github connection
                 + run command
                     * ssh -T git@github.com
-        
-    
-
-
-
-
+                    
+    12) Deploying NODE Project on Heroku 
+        - This is using terminal commands
+            * set up ssh public key file with heroku
+             1) heroku keys:add
+            * creating heroku application
+             1) heroku create <project name>
+                - project name must be unique in all heroku applications
+                - jb-weather-application
+             2) after creation heroku will output some urls
+                - https://jb-weather-application.herokuapp.com/  (live url where we can view our application)
+                - https://git.heroku.com/jb-weather-application.git (git repository where we can push our code)
+             
+             3) We have to make a couple of changes so that heroku can actually know how to run
+                our application
+             4) We have to provide it with some basic instruction on what to do when it gets our code
+             5) One of the changes is in "package.json", in order for heroku to start our application
+                we need to tell it first which file to run.
+             6) changes in package.json 
+                1) scripts section, empty it first by deleting some unnecessary code.
+                    "scripts": {
+                    "start" : "node src/app.js"
+                    },
+                 on terminal we can run our application locally by
+                 " npm run start " like what we put in the scripts section that heroku will do we it gets our code.
+            7) changes in app.js by changing the port value where our application listens
+                port 3000 can still be used when our application is running locally in our computer
+                but in heroku it will provide a port value that we need to use when our app is running in heroku.    
+                    
+                adding constat port
+                const port = process.env.PORT || 3000
+                app.listen(port, () => {
+                        console.log('Server is up on port 3000')
+                })
+            8) changing or removing static url's like http://localhost:3000 to our heroku's domain like in /public/js/app.js
+                before -> const url = 'http://localhost:3000/weather?address=' + location
+                after -> const url = '/weather?address=' + location
+            9) after changes, push our code to heroku
+                1) git status
 
 
 
