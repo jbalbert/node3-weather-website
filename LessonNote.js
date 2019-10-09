@@ -98,8 +98,18 @@
             8) changing or removing static url's like http://localhost:3000 to our heroku's domain like in /public/js/app.js
                 before -> const url = 'http://localhost:3000/weather?address=' + location
                 after -> const url = '/weather?address=' + location
-            9) after changes, push our code to heroku
-                1) git status
+            9) after changes, push our changes to github and heroku
+                1) before pushing to heroku
+                2) push changes first in github
+                3) after pushing to github
+                4) git remote
+                    - output 
+                       + heroku
+                       + origin
+                5) to deploy on heroku
+                    - git push heroku master
+
+
 
 
 
