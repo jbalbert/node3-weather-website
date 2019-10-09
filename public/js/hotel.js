@@ -15,7 +15,7 @@ hotelForm.addEventListener('submit', (event) => {
 
     const hotelUrl = '/hotelSearch?destination=' + destination + '&checkin=' + checkin + '&checkout=' + checkout + '&pax=' + pax
 
-    hotelMessageOne.textContent = 'Loading Hotel Results.....'
+    hotelMessageOne.textContent = 'Loading hotel results. Please wait while we are fetching available hotels from our supplier.'
 
 
     fetch(hotelUrl).then((response) => {
