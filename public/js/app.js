@@ -10,8 +10,8 @@ console.log("Test Js File....")
 
 
 /* The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.*/
-const weatherForm = document.querySelector('form')
-const searchElement = document.querySelector('input')
+const weatherForm = document.querySelector('.weather-form')
+const searchElement = document.querySelector('#address')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 

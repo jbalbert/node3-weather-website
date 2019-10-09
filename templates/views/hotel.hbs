@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel</title>
+    <link rel="icon" href="/images/weather.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <div class="main-content">
+        
+            {{>header}}
+            <form class="hotel-form">
+            <input type="text" name="destination" id="destination" placeholder="Destination Code 13826 or 49, This is dubai"><br><br>
+            <input type="text" name="checkin" id="checkin" placeholder="Check - In (Y-m-d)"><br><br>
+            <input type="text" name="checkout" id="checkout" placeholder="Check - Out (Y-m-d)"><br><br>
+            <input type="text" name="pax" id="pax" placeholder="Pax (Min 1, Max 4)"><br><br>
+            <button>Search</button>
+            <p id="hotel-message-1" class="message-display"></p>
+            <div class="hotel-results"></div>
+
+        </form>
+
+    </div>
+
+    {{>footer}}
+
+    <script src="/js/hotel.js"></script>
+    
+</body>
+</html>
