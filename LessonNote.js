@@ -74,6 +74,28 @@
                 - https://jb-weather-application.herokuapp.com/  (live url where we can view our application)
                 - https://git.heroku.com/jb-weather-application.git (git repository where we can push our code)
              
+             Additional:
+                If you have environment variables then we need to use a command in heroku called
+                'heroku config' this will allow us to set env variables, read our existing env variables and delete them
+
+                1) to test and add env variables on heroku.. run "heroku config:set key=value" then enter
+                    terminal result:
+                        Setting key and restarting ⬢ jbalbert-task-manager... done, v3
+                        key: value
+                2) to see the env variables you set run "heroku config"
+                3) "heroku config:unset key" this is remove the testing "key=value" we added
+                4) run again and exact env variables:
+                    * heroku config:set JWT_SECRET_KEY=TaskAuthApiKey SENDGRID_API_KEY=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 
+                            Terminal Result:  
+                                    Setting JWT_SECRET_KEY, SENDGRID_API_KEY and restarting ⬢ jbalbert-task-manager... done, v5
+                                    JWT_SECRET_KEY:   TaskAuthApiKey
+                                    SENDGRID_API_KEY: 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
+                    * set up mongodb env
+                        * go to atlas.com click 'connect' then click 'connect your application'
+                        * then copy connection string 
+                        * then change password as well as the /test to your exact database name.
+                        * heroku config:set MONGODB_CONNECTION='mongodb+srv://taskapp:deathnote69@cluster0-ff6ed.mongodb.net/task-manager-api?retryWrites=true&w=majority'
+                    * port is already managed by heroku so not need to be added to env config. 
              3) We have to make a couple of changes so that heroku can actually know how to run
                 our application
              4) We have to provide it with some basic instruction on what to do when it gets our code
@@ -124,7 +146,7 @@
          - type in terminal "npm uninstall -g nodemon"
          - to instal nodemon "npm install nodemon --save-dev" 
          * --save-dev is a dependency that you need only in your local machine.
-
+                
 
 
 
